@@ -1,4 +1,4 @@
-package ulb.advancedb.project;
+package ulb.advancedb.dynamodb;
 
 import java.util.Arrays;
 

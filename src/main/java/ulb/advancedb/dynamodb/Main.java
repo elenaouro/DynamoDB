@@ -1,4 +1,8 @@
-package ulb.advancedb.project;
+package ulb.advancedb.dynamodb;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -6,14 +10,24 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+import com.amazonaws.services.dynamodbv2.document.ItemCollection;
+import com.amazonaws.services.dynamodbv2.document.ScanFilter;
+import com.amazonaws.services.dynamodbv2.document.ScanOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
+import com.amazonaws.services.dynamodbv2.model.Condition;
 import com.amazonaws.services.dynamodbv2.model.DeleteTableRequest;
+import com.amazonaws.services.dynamodbv2.model.ScanRequest;
+import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.amazonaws.services.dynamodbv2.model.TableAlreadyExistsException;
 import com.amazonaws.services.dynamodbv2.model.TableDescription;
 import com.amazonaws.services.dynamodbv2.util.TableUtils;
 
-import ulb.advancedb.project.LoadData;
-import ulb.advancedb.project.CreateTable;
+import ulb.advancedb.dynamodb.CreateTable;
+import ulb.advancedb.dynamodb.LoadData;
+
+import com.amazonaws.services.dynamodbv2.document.Item;
 
 public class Main {
 
@@ -54,6 +68,9 @@ public class Main {
 					if(!stateZero)
 						resetDB(dynamoDB);
 					
+					QueryTable.filterPKAndSK( dynamoDB, DBTableName, "HR-EMPLOYEE", "EMPLOYEE" );
+					QueryTable.filterPK( dynamoDB, DBTableName, "HR-EMPLOYEE" );
+					
 				break;
 					
 			case 2:
@@ -71,7 +88,7 @@ public class Main {
 				break;
 				
 			case 5:
-				
+
 				break;
 			
 		}
@@ -109,6 +126,8 @@ public class Main {
 		LoadData.load("hr.json",dynamoDB, DBTableName);
 		
 	}
+	
+	
 	
 	
 }
