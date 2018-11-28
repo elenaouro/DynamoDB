@@ -32,12 +32,14 @@ public class Main {
 	            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "local"))
 	            .build();
 	        DynamoDB dynamoDB = new DynamoDB(client);
+	        boolean stateZero = false;
 		if(!tableExists(DBTableName,dynamoDB)) {
 			generateDB(dynamoDB);
+			stateZero = true;
 		}
 		switch(Integer.parseInt(args[0])) {
 			case(1):
-				resetDB(dynamoDB);
+				if(!stateZero) resetDB(dynamoDB);
 				break;
 			case(2):
 				
