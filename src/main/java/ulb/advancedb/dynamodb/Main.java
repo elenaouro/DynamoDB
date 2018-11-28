@@ -123,7 +123,7 @@ public class Main {
 	private static void generateDB(DynamoDB dynamoDB) {
 		
 		CreateTable.createTable(dynamoDB, DBTableName);
-		LoadData.load("hr.json",dynamoDB, DBTableName);
+		LoadData.load("src/main/resources/hr.json",dynamoDB, DBTableName);
 		
 	}
 	
