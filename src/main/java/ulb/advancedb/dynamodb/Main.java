@@ -88,6 +88,9 @@ public class Main {
 				break;
 				
 			case 5:
+				
+				//QueryTable.filterPKAndSK( dynamoDB, DBTableName, "HR-EMPLOYEE", "EMPLOYEE" );
+				QueryTable.filterPK( dynamoDB, DBTableName, "HR-EMPLOYEE1" );
 
 				break;
 			
@@ -123,7 +126,7 @@ public class Main {
 	private static void generateDB(DynamoDB dynamoDB) {
 		
 		CreateTable.createTable(dynamoDB, DBTableName);
-		LoadData.load("src/main/resources/hr.json",dynamoDB, DBTableName);
+		LoadData.load("src/main/resources/Employee.json",dynamoDB, DBTableName);
 		
 	}
 	

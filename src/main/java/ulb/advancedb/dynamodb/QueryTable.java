@@ -20,7 +20,7 @@ public class QueryTable {
         Iterator<Item> iter = items.iterator();
         while (iter.hasNext()) {
             Item item = iter.next();
-            System.out.println(item.toString());
+            System.out.println(item.toJSON());
         }
 		
 	}
@@ -34,7 +34,8 @@ public class QueryTable {
         Iterator<Item> iter = items.iterator();
         while (iter.hasNext()) {
             Item item = iter.next();
-            System.out.println(item.toString());
+            
+            System.out.println(item.toJSON());
         }
 		
 	}

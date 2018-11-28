@@ -34,7 +34,7 @@ public class LoadData {
         	items = (JSONArray)parser.parse(new FileReader(path));
         } catch (Exception e) {
             System.err.println("Unable to read the data file");
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
         
         if( items != null ) {
