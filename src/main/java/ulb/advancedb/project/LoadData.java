@@ -33,12 +33,12 @@ public class LoadData {
         		if(!key.toString().equals("ID")&&!key.toString().equals("name")) {
         			if(current.get(key) instanceof String) {
         				DBItem.withString(key.toString(), current.get(key).toString());
-        			}
-        			else if(current.get(key) instanceof Long) {
+        			}else if(current.get(key) instanceof Long) {
         				DBItem.withLong(key.toString(), (Long)current.get(key));
-        			}
-        			else if(current.get(key) instanceof Integer) {
+        			}else if(current.get(key) instanceof Integer) {
         				DBItem.withInt(key.toString(), (Integer)current.get(key));
+        			}else if(current.get(key) instanceof Double) {
+        				DBItem.withDouble(key.toString(), (Double)current.get(key));
         			}
         		}
         	
