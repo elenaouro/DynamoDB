@@ -78,7 +78,7 @@ public class Main {
 
 	private static void generateDB(DynamoDB dynamoDB) {
 		CreateTable.createTable(dynamoDB);
-		LoadData.load("/home/elena/eclipse-workspace/DynamoDB/src/main/resources/hr.json",dynamoDB);
+		LoadData.load("hr.json",dynamoDB);
 	}
 	
 	
