@@ -1,0 +1,23 @@
+[
+    {"ID":"HR-EMPLOYEE1",
+	 "name":"EMPLOYEE1",
+	 "Data":"John Smith",
+	 "StartDate":null,
+	 "EndDate":"2",
+	 "JobID":123,
+	 "JobTitle":"Principal Account Manager"
+    },
+{"ID":"HR-EMPLOYEE2",
+	 "name":"EMPLOYEE2",
+	 "Data":"Johanna Smith",
+	 "StartDate":"1",
+	 "EndDate":"2",
+	 "JobID":1234,
+	 "JobTitle":"Principal Account Manager"
+    },
+	{"ID":"HR-EMPLOYEE1",
+	 "name":"QUOTA-2017-Q1",
+	 "Data":"5000",
+	 "ExtraParam":"test"
+	}
+]
