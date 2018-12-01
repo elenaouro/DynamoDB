@@ -95,15 +95,37 @@ public class Main {
 				break;
 				
 			case 4:
-				
-					LoadData.load( args[1], dynamoDB, DBTableName );
-					
+			
+				if(args.length>1) LoadData.load( args[1], dynamoDB, DBTableName );
+				else {
+					System.out.println("Usage: Add item from JSON. Parameters: 1.Path to JSON file");
+				}
 				break;
 				
 			case 5:
-				
+				if(args.length>1) {
+					switch(args[1]) {
+						case "1":
+							if(args.length>2) QueryTable.filterPK(dynamoDB, DBTableName, args[2]);
+							else System.out.println("Look up employee details by employee ID. Parameters: 1.Employee ID");
+							break;
+						case "2":
+							break;
+						case "3":
+							break;
+						case "5":
+							break;
+					}
+				}else {
+					System.out.println("Usage: 5: Query the DB. Parameters: 1.number of query 2.Parameters required by specified query:\n"
+							+ "-1: Look up employee details by employee ID. Parameters: 1.Employee ID\n"
+							+ "-2: Query employee details by employee name. Parameters: 1.Employee name\n"
+							+ "-3: Get an employee's current job details only. Parameters: 1.Employee ID\n"
+							+ "-4: All employees hired recently. Parameters: 1.Emloyee ID 2.Oldest date of hiring to be retrieved YYYY-MM-DD\n"
+							+ "-5: Get all employees with a specific job title. Parameters: 1.Job title\n");
+				}
 				//QueryTable.filterPKAndSK( dynamoDB, DBTableName, "HR-EMPLOYEE", "EMPLOYEE" );
-				QueryTable.filterPK( dynamoDB, DBTableName, "HR-EMPLOYEE1" );
+				//QueryTable.filterPK( dynamoDB, DBTableName, "HR-EMPLOYEE1" );
 
 				break;
 			
