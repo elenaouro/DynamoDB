@@ -40,9 +40,9 @@ public class Main {
 			
 			System.out.println("Usage:\n"
 					+ "1: Reset Sample DB\n"
-					+ "2: Update item from JSON\n"
-					+ "3: Delete item\n"
-					+ "4: Add item from JSON\n"
+					+ "2: Update item from JSON. Parameters: 1.Path to JSON file containing the updates\n"
+					+ "3: Delete item. Parameters: 1.Partition key 2.[optional]Sort key \n"
+					+ "4: Add item from JSON. Parameters: 1.Path to JSON file\n"
 					+ "5: Query the DB");
 			return;
 		}
@@ -79,6 +79,7 @@ public class Main {
 				
 			case 3 :
 				
+				if(args.length>1) UpdateItem.updateItem(dynamoDB, DBTableName, args[1]);			
 				break;
 				
 			case 4:
