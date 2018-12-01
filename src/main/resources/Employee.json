@@ -16,7 +16,23 @@
 "Country":"Canada",
 "Email1":"Adara.Joannis@moose-mail.com",
 "Email2":"Adara.Joannis@gmx.com",
-"ID":"HR-EMPLOYEE0"},
+"ID":"HR-EMPLOYEE0",
+"JobId":"J-AM3"
+},
+
+{
+	 "ID":"HR-JOB1",
+	 "Name":"J-AM3",
+	 "Data":"Principal Accountmanager"
+},
+{
+	 "ID":"HR-EMPLOYEE0",
+	 "Name":"J-AM3",
+	 "Data":"Principal Accountmanager",
+	 "DepartmentId":"COMMERCIAL",
+	 "StartDate":"2007-07-07",
+	 "EndDate":"2017-07-07"
+},
 
 {"phone_2":null,
 "Status":"ACTIVE",

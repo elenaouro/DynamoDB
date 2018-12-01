@@ -1,5 +1,6 @@
 package ulb.advancedb.dynamodb;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -73,9 +74,6 @@ public class Main {
 					if(!stateZero)
 						resetDB(dynamoDB);
 					
-					QueryTable.filterPKAndSK( dynamoDB, DBTableName, "HR-EMPLOYEE", "EMPLOYEE" );
-					QueryTable.filterPK( dynamoDB, DBTableName, "HR-EMPLOYEE" );
-					
 				break;
 					
 			case 2:
@@ -102,8 +100,38 @@ public class Main {
 				
 			case 5:
 				
-				//QueryTable.filterPKAndSK( dynamoDB, DBTableName, "HR-EMPLOYEE", "EMPLOYEE" );
-				QueryTable.filterPK( dynamoDB, DBTableName, "HR-EMPLOYEE1" );
+				
+				if( args.length>2 ) {
+					
+					switch( Integer.parseInt( args[1] ) ) {
+						case 1:
+							QueryTable.queryEmployeeID(dynamoDB, DBTableName, args[2] );
+							break;
+						case 2:
+							QueryTable.queryEmployeeName(dynamoDB, DBTableName, args[2]);
+							break;
+						case 3:
+							QueryTable.queryEmployeeCurrentJob(dynamoDB, DBTableName, args[2]);
+							break;
+						case 4:
+							SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+							QueryTable.queryEmployeesHiredReccently(dynamoDB, DBTableName, format.parse( args[2] ));
+							break;
+						case 5:
+							QueryTable.queryEmployeeWithJobTitle(dynamoDB, DBTableName, args[2]);
+							break;
+					}
+
+				}else {
+					System.out.println("Usage: 5: Query the DB. Parameters: 1.number of query 2.Parameters required by specified query:\n"
+							+ "		-1: Look up employee details by employee ID. Parameters: 1.Employee ID\n"
+							+ "		-2: Query employee details by employee name. Parameters: 1.Employee name\n"
+							+ "		-3: Get an employee's current job details only. Parameters: 1.Employee ID\n"
+							+ "		-4: All employees hired recently. 1.Oldest date of hiring to be retrieved yyyy-MM-dd\n"
+							+ "		-5: Get all employees with a specific job title. Parameters: 1.Job title\n" );
+				}
+				
+				
 
 				break;
 			
