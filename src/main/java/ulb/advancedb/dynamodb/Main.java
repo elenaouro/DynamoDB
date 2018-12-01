@@ -93,32 +93,39 @@ public class Main {
 				break;
 				
 			case 4:
-				
-					LoadData.load( args[1], dynamoDB, DBTableName );
-					
+			
+				if(args.length>1) LoadData.load( args[1], dynamoDB, DBTableName );
+				else {
+					System.out.println("Usage: Add item from JSON. Parameters: 1.Path to JSON file");
+				}
 				break;
 				
 			case 5:
 				
-				
-				if( args.length>2 ) {
+				if( args.length>1 ) {
 					
 					switch( Integer.parseInt( args[1] ) ) {
 						case 1:
-							QueryTable.queryEmployeeID(dynamoDB, DBTableName, args[2] );
+							
+							if(args.length>2) QueryTable.queryEmployeeID(dynamoDB, DBTableName, args[2] );
+							else System.out.println("Look up employee details by employee ID. Parameters: 1.Employee ID");
 							break;
 						case 2:
-							QueryTable.queryEmployeeName(dynamoDB, DBTableName, args[2]);
+							if(args.length>2) QueryTable.queryEmployeeName(dynamoDB, DBTableName, args[2]);
+							else System.out.println("Look up employee details by employee ID. Parameters: 1.Employee name");
 							break;
 						case 3:
-							QueryTable.queryEmployeeCurrentJob(dynamoDB, DBTableName, args[2]);
+							if(args.length>2) QueryTable.queryEmployeeCurrentJob(dynamoDB, DBTableName, args[2]);
+							else System.out.println("Look up employee details by employee ID. Parameters: 1.Employee ID");
 							break;
 						case 4:
 							SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-							QueryTable.queryEmployeesHiredReccently(dynamoDB, DBTableName, format.parse( args[2] ));
+							if(args.length>2) QueryTable.queryEmployeesHiredReccently(dynamoDB, DBTableName, format.parse( args[2] ));
+							else System.out.println("Look up employee details by employee ID. Parameters: 1.Oldest date of hiring to be retrieved yyyy-MM-dd");
 							break;
 						case 5:
-							QueryTable.queryEmployeeWithJobTitle(dynamoDB, DBTableName, args[2]);
+							if(args.length>2) QueryTable.queryEmployeeWithJobTitle(dynamoDB, DBTableName, args[2]);
+							else System.out.println("Look up employee details by employee ID. Parameters: 1.Job title");
 							break;
 					}
 
@@ -130,8 +137,6 @@ public class Main {
 							+ "		-4: All employees hired recently. 1.Oldest date of hiring to be retrieved yyyy-MM-dd\n"
 							+ "		-5: Get all employees with a specific job title. Parameters: 1.Job title\n" );
 				}
-				
-				
 
 				break;
 			
