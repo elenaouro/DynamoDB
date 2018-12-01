@@ -43,7 +43,12 @@ public class Main {
 					+ "2: Update item from JSON. Parameters: 1.Path to JSON file containing the updates\n"
 					+ "3: Delete item. Parameters: 1.Partition key 2.Sort key \n"
 					+ "4: Add item from JSON. Parameters: 1.Path to JSON file\n"
-					+ "5: Query the DB");
+					+ "5: Query the DB. Parameters: 1.number of query 2.Parameters required by specified query:\n"
+					+ "		-1: Look up employee details by employee ID. Parameters: 1.Employee ID\n"
+					+ "		-2: Query employee details by employee name. Parameters: 1.Employee name\n"
+					+ "		-3: Get an employee's current job details only. Parameters: 1.Employee ID\n"
+					+ "		-4: All employees hired recently. Parameters: 1.Emloyee ID 2.Oldest date of hiring to be retrieved YYYY-MM-DD\n"
+					+ "		-5: Get all employees with a specific job title. Parameters: 1.Job title\n");
 			return;
 		}
 		
