@@ -74,11 +74,19 @@ public class Main {
 				break;
 					
 			case 2:
+				
 				if(args.length>1) UpdateItem.updateItem(dynamoDB, DBTableName, args[1]);
+				else {
+					System.out.println("Usage: Update item from JSON. Parameters: 1.Path to JSON file containing the updates");
+				}
 				break;
 				
 			case 3 :
+				
 				if(args.length>2) DeleteItem.deleteItem(dynamoDB, DBTableName, args[1], args[2]);
+				else {
+					System.out.println("Usage: Delete item. Parameters: 1.Partition key 2.Sort key");
+				}
 				break;
 				
 			case 4:
