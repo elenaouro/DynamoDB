@@ -41,12 +41,8 @@ public class UpdateItem {
         	PK=item.get("ID").toString();
         	SK=item.get("Name").toString();
         	int numKeys=1;
-			if(SK.isEmpty()||SK==null) {
-				updateItemSpec.withPrimaryKey("ID", PK);
-			}else {
-				updateItemSpec.withPrimaryKey("ID",PK,"Name",SK);
-				++numKeys;
-			}
+			updateItemSpec.withPrimaryKey("ID",PK,"Name",SK);
+			++numKeys;
 			String updateExpression = "set ";
 			String attributeKey = ":a";
 			Integer attributeIndex = 1;
@@ -77,7 +73,6 @@ public class UpdateItem {
 
             }
             catch (Exception e) {
-            	if(SK==null) SK="";
                 System.err.println("Unable to update item: " + PK + " " + SK);
                 System.err.println(e.getMessage());
             }
