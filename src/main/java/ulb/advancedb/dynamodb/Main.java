@@ -124,7 +124,7 @@ public class Main {
 							else System.out.println("Look up employee details by employee ID. Parameters: 1.Oldest date of hiring to be retrieved yyyy-MM-dd");
 							break;
 						case 5:
-							if(args.length>2) QueryTable.queryEmployeeWithJobTitle(dynamoDB, DBTableName, args[2]);
+							if(args.length>2) QueryTable.queryEmployeeWithJobID(dynamoDB, DBTableName, args[2]);
 							else System.out.println("Look up employee details by employee ID. Parameters: 1.Job title");
 							break;
 					}

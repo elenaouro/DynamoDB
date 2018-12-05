@@ -138,16 +138,16 @@ public class QueryTable {
         
 	}
 	
-	public static void queryEmployeeWithJobTitle( DynamoDB dynamoDB, String tableName, String jobTitle ) {
+	public static void queryEmployeeWithJobID( DynamoDB dynamoDB, String tableName, String jobID ) {
 		
 
 		Table table = dynamoDB.getTable( tableName );
 		
 		Index index = table.getIndex(CreateTable.GSI_1_NAME);
 		
-		QuerySpec spec = new QuerySpec().withKeyConditionExpression("#name = :v_jobTitle ")
+		QuerySpec spec = new QuerySpec().withKeyConditionExpression("#name = :v_jobID ")
 				.withNameMap( new NameMap().with("#name", CreateTable.SK) ) 
-			    .withValueMap(new ValueMap().withString(":v_id", jobTitle ))
+			    .withValueMap(new ValueMap().withString(":v_jobID", jobID ))
 			    .withConsistentRead(true);
 		
 		ItemCollection<QueryOutcome> items = index.query(spec);
